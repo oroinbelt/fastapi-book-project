@@ -23,7 +23,7 @@ jobs:
         echo "Deploying to VM"
         ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_IP }} << 'EOF'
           # Navigate to your app directory
-          cd /path/to/your/fastapi-app-directory || exit 1
+          cd /home/falcon/fastapi-book-project || exit 1
           
           git pull origin main || exit 1
 
