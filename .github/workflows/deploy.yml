@@ -22,12 +22,12 @@ jobs:
       run: |
         echo "Deploying to VM"
         ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_IP }} << 'EOF'
-          # Navigate to your app directory
           cd /home/falcon/fastapi-book-project || exit 1
           
           git pull origin main || exit 1
-
-          docker build -t fastapi-book-project . || exit 1
           
-          docker run --network host --restart always -d fastapi-book-project || exit 1
+          docker-compose --version || exit 1
+          
+          docker-compose down || exit 1
+          docker-compose up -d || exit 1
         EOF
