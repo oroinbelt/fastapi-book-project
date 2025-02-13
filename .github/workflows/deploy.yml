@@ -29,5 +29,6 @@ jobs:
           docker-compose --version || exit 1
           
           docker-compose down || exit 1
-          docker-compose up -d --build --no-cache || exit 1
+          docker-compose build --no-cache || exit 1
+          docker-compose up -d || exit 1
         EOF
